@@ -1,109 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Harmony 4 Health</title>
-  
+<title>Harmony for Health</title>
 
-  <link rel="stylesheet" href="css/style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-</head> 
+<style>
+
+:root{
+--rose:#E76F8F;
+--teal:#4DB6AC;
+--green:#A8D5BA;
+--gold:#FFCF63;
+--brown:#7E5C4E;
+--light:#FFFDFB;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:var(--light);
+color:#333;
+line-height:1.7;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+section{
+padding:90px 8%;
+}
+
+.container{
+max-width:1300px;
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:white;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo-box{
+width:60px;
+height:60px;
+border-radius:50%;
+border:3px solid var(--rose);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:var(--rose);
+}
+
+.logo h2{
+color:var(--brown);
+}
+
+nav a{
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+color:var(--brown);
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--rose);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:60px;
+background:linear-gradient(135deg,#fff,#f7fbfb);
+padding-top:120px;
+}
+
+.hero-content h1{
+font-size:4rem;
+line-height:1.1;
+color:var(--brown);
+margin-bottom:20px;
+}
+
+.hero-content span{
+color:var(--rose);
+}
+
+.hero-content p{
+font-size:1.1rem;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+}
+
+.primary{
+background:var(--rose);
+color:white;
+}
+
+.secondary{
+background:var(--teal);
+color:white;
+}
+
+.hero-image{
+position:relative;
+}
+
+.hero-image img{
+border-radius:30px;
+height:600px;
+object-fit:cover;
+width:100%;
+}
+
+.photo-placeholder{
+height:600px;
+border-radius:30px;
+background:linear-gradient(
+135deg,
+var(--green),
+var(--teal)
+);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:1.3rem;
+font-weight:600;
+}
+
+/* SECTION TITLES */
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.8rem;
+color:var(--brown);
+margin-bottom:10px;
+}
+
+.section-title p{
+max-width:700px;
+margin:auto;
+}
+
+/* STORY */
+
+.story{
+background:white;
+}
+
+.story-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.story-image{
+height:500px;
+border-radius:25px;
+background:var(--green);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:600;
+font-size:1.2rem;
+}
+
+/* PILLARS */
+
+.pillars{
+background:#f8fbfa;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:var(--rose);
+}
+
+/* THERAPY */
+
+.therapy-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.therapy-item{
+background:white;
+padding:30px;
+border-left:5px solid var(--teal);
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.therapy-item h4{
+margin-bottom:10px;
+color:var(--brown);
+}
+
+/* IMPACT */
+
+.impact{
+background:linear-gradient(
+135deg,
+var(--rose),
+var(--teal)
+);
+color:white;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.stat{
+padding:40px;
+}
+
+.stat h3{
+font-size:3rem;
+}
+
+/* FUTURE */
+
+.future-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.future-card{
+background:white;
+padding:30px;
+border-radius:20px;
+border-top:5px solid var(--gold);
+}
+
+/* CONNECTED BRANDS */
+
+.brands{
+background:#fdf9f6;
+}
+
+.brand-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.brand-card{
+padding:40px;
+background:white;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,.05);
+}
+
+.brand-card h3{
+margin-bottom:15px;
+color:var(--rose);
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery-box{
+height:280px;
+background:var(--green);
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+background:var(--brown);
+color:white;
+padding:60px 8%;
+text-align:center;
+}
+
+footer h3{
+margin-bottom:15px;
+}
+
+@media(max-width:900px){
+
+.hero,
+.story-grid{
+grid-template-columns:1fr;
+}
+
+.hero-content h1{
+font-size:3rem;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
 <body>
 
 <header>
-  <h1>Harmony for Health</h1>
 
-  <nav>
-    <a href="#story">Story</a>
-    <a href="#experience">Experience</a>
-    <a href="#app">The App</a>
-    <a href="#impact">Impact</a>
-    <a href="#support">Support</a>
-  </nav>
+<div class="logo">
+<div class="logo-box">
+LOGO
+</div>
+<h2>Harmony for Health</h2>
+</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#pillars">Programs</a>
+<a href="#therapy">Therapy</a>
+<a href="#impact">Impact</a>
+<a href="#future">Future</a>
+<a href="#ventures">Ventures</a>
+</nav>
+
 </header>
 
-<!-- 🌿 HERO becomes an ENTRY FIELD -->
 <section class="hero">
-  <h2>Music as Healing. Community as Medicine.</h2>
 
-  <p class="fade-in">
-    A space where sound becomes care, and care becomes connection.
-  </p>
+<div class="hero-content">
 
-  <a class="button" href="#story">Enter the Field</a>
+<h1>
+Creating a <span>Healthier Tomorrow</span>
+Through Community, Education & Harmony
+</h1>
+
+<p>
+Harmony for Health exists to empower health literacy,
+increase access to healthcare resources,
+and cultivate holistic wellbeing across African communities.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn primary">Join the Mission</a>
+<a href="#" class="btn secondary">Explore Programs</a>
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<div class="photo-placeholder">
+HERO PHOTO SPACE
+</div>
+
+</div>
+
 </section>
 
-<!-- 🌊 STORY becomes emotional grounding -->
-<section id="story">
-  <h2>The Story</h2>
+<section id="about" class="story">
 
-  <p class="reveal">
-    Created from lived experience of migration, loneliness, and healing through sound.
-  </p>
+<div class="container">
 
-  <p class="reveal">
-    This is not just a project. It is a growing field of care.
-  </p>
+<div class="section-title">
+<h2>Our Story</h2>
+<p>
+A grassroots movement dedicated to health education,
+accessibility, and community empowerment.
+</p>
+</div>
+
+<div class="story-grid">
+
+<div>
+<p>
+Most African communities do not have adequate access
+to health education and wellness resources.
+Harmony for Health began from a simple vision:
+to empower individuals with knowledge,
+connect them to healthcare resources,
+and strengthen communities through shared wellbeing.
+</p>
+
+<br>
+
+<p>
+Though still growing, the initiative is already planting
+seeds of healthier lifestyles, informed choices,
+and stronger support networks throughout the community.
+</p>
+</div>
+
+<div class="story-image">
+COMMUNITY PHOTO SPACE
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- 🌬 EXPERIENCE (NEW CORE SECTION) -->
-<section id="experience" class="experience">
-  <h2>Shared Human Experience</h2>
+<section id="pillars" class="pillars">
 
-  <div class="cards">
-    <div class="card">Breath through sound</div>
-    <div class="card">Release emotional weight</div>
-    <div class="card">Reconnect through music</div>
-  </div>
+<div class="container">
+
+<div class="section-title">
+<h2>Three Pillars of Harmony</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Education & Workshops</h3>
+<p>
+Free community workshops focused on nutrition,
+mental health, disease prevention,
+and preventive healthcare practices.
+</p>
+</div>
+
+<div class="card">
+<h3>Access to Resources</h3>
+<p>
+Connecting people with clinics,
+screenings, consultations,
+and reliable healthcare information.
+</p>
+</div>
+
+<div class="card">
+<h3>Community Engagement</h3>
+<p>
+Creating safe spaces where people can share experiences,
+build support networks,
+and reduce health-related stigma.
+</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- 🌱 APP SECTION -->
-<section id="app">
-  <h2>A Global Healing App</h2>
+<section id="therapy">
 
-  <ul>
-    <li>Sound-based emotional support</li>
-    <li>Mood reflection tools</li>
-    <li>Community healing spaces</li>
-    <li>Offline accessibility</li>
-  </ul>
+<div class="container">
 
-  <a class="button" href="#">Explore The App</a>
+<div class="section-title">
+<h2>Therapy & Personal Growth</h2>
+<p>
+Healing is not one path. Different approaches help people
+understand themselves, build resilience,
+and create meaningful change.
+</p>
+</div>
+
+<div class="therapy-grid">
+
+<div class="therapy-item">
+<h4>CBT</h4>
+<p>Transform negative thought patterns into healthier behaviors.</p>
+</div>
+
+<div class="therapy-item">
+<h4>Psychodynamic</h4>
+<p>Explore past experiences and emotional roots.</p>
+</div>
+
+<div class="therapy-item">
+<h4>Humanistic</h4>
+<p>Focus on growth, self-awareness, and self-actualization.</p>
+</div>
+
+<div class="therapy-item">
+<h4>Mindfulness</h4>
+<p>Develop acceptance, presence, and emotional balance.</p>
+</div>
+
+<div class="therapy-item">
+<h4>Skills Development</h4>
+<p>Communication, coping tools, and problem-solving strategies.</p>
+</div>
+
+<div class="therapy-item">
+<h4>Growth Mindset</h4>
+<p>Practice self-compassion while embracing learning and change.</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- 🌍 IMPACT becomes VISUAL FEELING -->
-<section id="impact">
-  <h2>Community Impact</h2>
+<section id="impact" class="impact">
 
-  <p class="reveal">
-    Every session creates a ripple of calm, connection, and relief.
-  </p>
+<div class="container">
 
-  <p class="reveal">
-    People leave feeling lighter — not because problems disappear, but because they are held.
-  </p>
+<div class="section-title">
+<h2>Early Impact</h2>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>60%</h3>
+<p>Improved health understanding among workshop participants.</p>
+</div>
+
+<div class="stat">
+<h3>100+</h3>
+<p>Free health screenings delivered through partnerships.</p>
+</div>
+
+<div class="stat">
+<h3>Growing</h3>
+<p>Community circles fostering belonging and support.</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- 🤝 SUPPORT becomes emotional invitation -->
-<section id="support">
-  <h2>Become Part of the Field</h2>
+<section id="future">
 
-  <p>
-    Help us grow free healing spaces worldwide.
-  </p>
+<div class="container">
 
-  <a class="button pulse" href="donate.html">Support the Mission</a>
+<div class="section-title">
+<h2>Looking Forward</h2>
+</div>
+
+<div class="future-grid">
+
+<div class="future-card">
+<h3>Mobile Health Clinics</h3>
+<p>
+Bringing healthcare outreach directly to underserved areas.
+</p>
+</div>
+
+<div class="future-card">
+<h3>Digital Health Platforms</h3>
+<p>
+Expanding access to information and wellness resources online.
+</p>
+</div>
+
+<div class="future-card">
+<h3>Youth Health Ambassadors</h3>
+<p>
+Developing future leaders who promote health literacy.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="ventures" class="brands">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Connected Ventures</h2>
+<p>
+One unified brand ecosystem with room to grow.
+</p>
+</div>
+
+<div class="brand-grid">
+
+<div class="brand-card">
+<h3>🎵 Music</h3>
+<p>
+Showcase releases, performances,
+creative projects, and your artistic journey.
+</p>
+</div>
+
+<div class="brand-card">
+<h3>🌍 Leadership</h3>
+<p>
+Highlight community initiatives,
+vision, speaking engagements,
+and impact projects.
+</p>
+</div>
+
+<div class="brand-card">
+<h3>🎨 Social Media & Graphics</h3>
+<p>
+Present services, portfolios,
+branding work, and client success stories.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>Photo Gallery</h2>
+<p>
+Replace these placeholders with real community,
+workshop, health screening, and event photos.
+</p>
+</div>
+
+<div class="gallery">
+
+<div class="gallery-box">PHOTO 01</div>
+<div class="gallery-box">PHOTO 02</div>
+<div class="gallery-box">PHOTO 03</div>
+<div class="gallery-box">PHOTO 04</div>
+
+</div>
+
+</div>
+
 </section>
 
 <footer>
-  <p>Harmony for Health © 2026</p>
+
+<h3>Harmony for Health</h3>
+
+<p>
+Building a culture of health, wellness, and harmony
+for generations to come.
+</p>
+
 </footer>
 
-<script src="js/script.js"></script>
-
 </body>
-
-  </html≥
+  </html>
