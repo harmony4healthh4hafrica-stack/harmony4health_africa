@@ -6,8 +6,9 @@ window.addEventListener("load", () => {
     intro.classList.add("open");
   }, 600);
 
-  setTimeout(() => {
-    intro.classList.add("hide");
-  }, 5500);
 
+  
+setTimeout(() => {
+  intro.classList.add("fade-out");
+}, 5500);
 });
