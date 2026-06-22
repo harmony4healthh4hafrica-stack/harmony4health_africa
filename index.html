@@ -1183,8 +1183,7 @@ and create meaningful change.
 <p>Develop acceptance, presence, and emotional balance.</p>
 </div>
 
-
- <div class="therapy-item">
+<div class="therapy-item">
 <h4>Skills Development</h4>
 <p>Communication, coping tools, and problem-solving strategies.</p>
 </div>
@@ -1462,32 +1461,7 @@ for generations to come.
 
 <script src="js/intro.js"></script>
 
-<!-- OVERFLOW DEBUGGER - remove after fix -->
-<script>
-(function(){
-  var all = document.querySelectorAll('*');
-  var culprits = [];
-  all.forEach(function(el){
-    if(el.offsetWidth > document.documentElement.offsetWidth){
-      culprits.push({
-        tag: el.tagName,
-        class: el.className,
-        id: el.id,
-        width: el.offsetWidth
-      });
-    }
-  });
-  if(culprits.length){
-    var msg = 'OVERFLOW CULPRITS:\n';
-    culprits.forEach(function(c){
-      msg += c.tag + ' .' + c.class + ' #' + c.id + ' — width: ' + c.width + 'px\n';
-    });
-    alert(msg);
-  } else {
-    alert('No overflow elements found on load — may trigger after animation');
-  }
-})();
-</script>
+<!-- links hardcoded directly in buttons -->
 
 <!-- ANIMATION STYLES -->
 <style>
@@ -1529,11 +1503,11 @@ for generations to come.
 
 <!-- ANIMATION SCRIPTS -->
 <script>
-// Word-by-word hero title
+// Word-by-word hero title — overflow safe
 (function(){
-  const h1 = document.querySelector('.hero-content h1');
+  var h1 = document.querySelector('.hero-content h1');
   if(!h1) return;
-  const html = h1.innerHTML;
+  var html = h1.innerHTML;
   h1.innerHTML = html.replace(/(<[^>]+>)|(\S+)/g, function(m, tag, word){
     if(tag) return tag;
     return '<span class="word">'+word+'</span> ';
@@ -1541,10 +1515,21 @@ for generations to come.
   h1.querySelectorAll('.word').forEach(function(w,i){
     w.style.animationDelay = (0.8 + i * 0.12) + 's';
   });
+  h1.style.overflowX = 'hidden';
+  h1.style.wordBreak = 'break-word';
+  h1.style.maxWidth = '100%';
 })();
 
-// Scroll reveal
+// Scroll reveal — sr-left/sr-right clamped to prevent horizontal scroll
 (function(){
+  // On mobile, translateX animations cause overflow — disable them
+  var isMobile = window.innerWidth < 768;
+  if(isMobile){
+    var style = document.createElement('style');
+    style.textContent = '.sr-left,.sr-right{transform:translateY(30px) !important;}';
+    document.head.appendChild(style);
+  }
+
   var targets = document.querySelectorAll('.sr,.sr-left,.sr-right,.sr-scale,.sr-stagger,.section-title');
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -1589,4 +1574,4 @@ for generations to come.
  
 </body>
      
-</html>
+ </html>
