@@ -443,7 +443,11 @@ line-height:2;
 
 /* ===== JOURNEY TIMELINE ===== */
 
+
 .timeline{
+--year-col:90px;
+--dot-col:24px;
+--col-gap:20px;
 position:relative;
 max-width:900px;
 margin:0 auto;
@@ -452,7 +456,7 @@ margin:0 auto;
 .timeline::before{
 content:'';
 position:absolute;
-left:100px;
+left:calc(var(--year-col) + var(--col-gap) + (var(--dot-col) / 2));
 top:0;
 bottom:0;
 width:1px;
@@ -460,19 +464,23 @@ background:var(--line);
 }
 
 @media(max-width:700px){
-.timeline::before{left:20px;}
+.timeline{
+--year-col:0px;
+--col-gap:16px;
+}
+.timeline::before{left:calc(var(--dot-col) / 2);}
 }
 
 .tl-item{
 position:relative;
 display:grid;
-grid-template-columns:100px 1fr;
-gap:40px;
+grid-template-columns:var(--year-col) var(--dot-col) 1fr;
+column-gap:var(--col-gap);
 padding-bottom:64px;
 }
 
 @media(max-width:700px){
-.tl-item{grid-template-columns:20px 1fr;gap:24px;}
+.tl-item{grid-template-columns:var(--dot-col) 1fr;}
 .tl-item .tl-year{display:none;}
 }
 
@@ -481,24 +489,24 @@ font-family:'Space Mono',monospace;
 font-size:0.75rem;
 color:var(--gold);
 text-align:right;
-padding-top:4px;
+padding-top:6px;
 }
 
 .tl-item .tl-dot{
-position:absolute;
-left:96px;
-top:6px;
 width:9px;
 height:9px;
 border-radius:50%;
 background:var(--gold);
 box-shadow:0 0 0 4px var(--ink), 0 0 14px rgba(201,162,75,0.6);
+margin-top:9px;
+justify-self:center;
+align-self:start;
 }
 
-@media(max-width:700px){
-.tl-item .tl-dot{left:16px;}
-}
+  
 
+
+  
 .tl-item .tl-body h3{
 font-size:1.2rem;
 margin-bottom:8px;
