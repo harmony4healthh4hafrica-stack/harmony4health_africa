@@ -980,6 +980,7 @@ font-size:2rem;
 </style>
 </head>
 
+ 
 <body>
 
 <div id="particles-container"></div>
@@ -1030,7 +1031,8 @@ font-size:2rem;
 <h2>Harmony for Health</h2>
 </div>
 
-<nav>
+
+<nav id="main-nav">
 <a href="#about">About</a>
 <a href="#pillars">Programs</a>
 <a href="#therapy">Therapy</a>
@@ -1039,6 +1041,9 @@ font-size:2rem;
 <a href="#ventures">Ventures</a>
 </nav>
 
+<button id="nav-toggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
 </header>
 
 <section class="hero">
@@ -1635,6 +1640,25 @@ for generations to come.
 })();
 </script>
  
+ <script>
+(function(){
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if(!toggle || !nav) return;
+  toggle.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+ </script>
 </body>
      
  </html>
