@@ -9,7 +9,7 @@
 <!-- Open Graph / social preview -->
 <meta property="og:title" content="Joe Lyimo — FYJ">
 <meta property="og:description" content="Artist. Storyteller. Soul on stage. Independent musician (FYJ) and founder of Harmony for Health.">
-<meta property="og:image" content="assets/photos/hero.png">
+<meta property="og:image" content="assets/fyj-mark.png">
 <meta property="og:type" content="profile">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -118,7 +118,15 @@ font-size:1.1rem;
 letter-spacing:0.04em;
 color:var(--gold-bright);
 text-decoration:none;
+display:flex;
+align-items:center;
+gap:10px;
 }
+  .nav-mark-icon{
+width:28px;
+height:28px;
+opacity:0.95;
+  }
 
 .profile-nav .links a{
 font-family:'Space Mono',monospace;
@@ -766,7 +774,12 @@ transform:translateY(0);
 <body>
 
 <nav class="profile-nav">
-<a href="#" class="mark">JOE LYIMO</a>
+
+
+  <a href="#" class="mark">
+<img src="assets/fyj-mark.png" alt="FYJ" class="nav-mark-icon">
+JOE LYIMO
+  </a>
 <div class="links">
 <a href="#vision">Vision</a>
 <a href="#sound">Sound</a>
@@ -776,6 +789,7 @@ transform:translateY(0);
 </div>
 </nav>
 
+  
 <!-- ============ HERO ============ -->
 <section class="hero wrap">
 <div class="hero-copy">
