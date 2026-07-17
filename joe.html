@@ -282,6 +282,26 @@ animation-delay:0.4s;
 }
 
 .hero-divider{padding:40px 0 0;}
+  
+  .hero-fyj-mark{
+position:absolute;
+left:0;
+top:12%;
+width:110px;
+opacity:0.92;
+filter:drop-shadow(0 0 25px rgba(201,162,75,0.35));
+animation:markSpin 40s linear infinite;
+z-index:0;
+}
+
+@keyframes markSpin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+@media(max-width:900px){
+.hero-fyj-mark{display:none;}
+}
 
 /* ===== VISION / ARTIST STATEMENT ===== */
 
@@ -789,6 +809,8 @@ JOE LYIMO
 </div>
 </nav>
 
+
+  
   
 <!-- ============ HERO ============ -->
 <section class="hero wrap">
@@ -801,9 +823,12 @@ JOE LYIMO
 <a href="#pitch" class="btn btn-ghost"><i class="fas fa-file-alt"></i> View Pitch / CV</a>
 </div>
 </div>
+  
 <div class="hero-photo">
+<img src="assets/photos/fyj-mark.png" alt="FYJ" class="hero-fyj-mark">
 <img src="assets/photos/hero.png" alt="Joe Lyimo performing live">
 </div>
+  
 </section>
 
 <div class="wrap hero-divider">
