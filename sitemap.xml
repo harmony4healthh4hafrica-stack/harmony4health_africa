@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://harmony4healthh4hafrica-stack.github.io/harmony4health_africa/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- add one block like this for every other page of the site -->
+  <url>
     <loc>https://harmony4healthh4hafrica-stack.github.io/harmony4health_africa/joe.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
